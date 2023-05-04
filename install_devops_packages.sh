@@ -50,6 +50,8 @@ if [ "$OS" != "Centos" ] && [ "$OS" != "RedHat" ]; then
   sudo apt -qq install postgresql-client-12 -y 2>/dev/null | grep packages | cut -d '.' -f 1 && \
   sudo apt -qq install nmap -y 2>/dev/null | grep packages | cut -d '.' -f 1 && \
   sudo apt -qq install htop -y 2>/dev/null | grep packages | cut -d '.' -f 1 && \
+  sudo apt -qq install curl -y 2>/dev/null | grep packages | cut -d '.' -f 1 && \
+  sudo apt -qq install jq -y 2>/dev/null | grep packages | cut -d '.' -f 1 && \
   sudo apt -qq install net-tools -y 2>/dev/null | grep packages | cut -d '.' -f 1
   
   echo "Install last version of GIT"
@@ -93,14 +95,7 @@ if [ "$OS" != "Centos" ] && [ "$OS" != "RedHat" ]; then
 
   echo "Install Meld"
   git clone https://git.gnome.org/browse/meld && ln -s ~/meld/bin/meld /usr/bin/meld 2>/dev/null | grep packages | cut -d '.' -f 1
-  
-  echo "Install Visual Studio Code"
-  sudo apt -qq install software-properties-common apt-transport-https 2>/dev/null | grep packages | cut -d '.' -f 1 && \
-  sudo wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg && \
-  sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/ 2>/dev/null | grep packages | cut -d '.' -f 1 && \
-  sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-  apt update 2>/dev/null | grep packages | cut -d '.' -f 1 && sudo apt -qq install code 2>/dev/null | grep packages | cut -d '.' -f 1
-  
+    
 else
   echo "The distro is not Ubuntu or any Debian OS"
 fi
