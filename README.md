@@ -1,44 +1,42 @@
 # Useful Bash Scripts
 
-A collection of **useful Bash scripts** for automating setup, development, and system management tasks on Debian/Ubuntu-based Linux systems. This repository is designed to help developers and sysadmins quickly install common tools and configure their environment.
+A collection of practical Bash scripts for **system setup, development tools, virtualization, and server administration** on Debian/Ubuntu-based systems.
 
 ---
 
-## 📦 Included Scripts
+## Included Scripts
 
-### 1. `setup-environment.sh`
-Automates the installation of essential development and system tools, including:
+### `setup-environment.sh`
+Installs common development and system tools, including:
 
-- System update and upgrade
-- Common packages: `traceroute`, `nmap`, `htop`, `curl`, `jq`, `net-tools`, `postgresql-client`
-- Latest **Git**
-- **Ansible**
-- **Websocat**
-- **Kubectl** and Bash completion
-- **Helm** with Helm-Secrets plugin
-- **VirtualBox** and **Vagrant**
-- **Meld**
-- Latest **Golang**
+- system update and upgrade
+- `traceroute`, `nmap`, `htop`, `curl`, `jq`, `net-tools`
+- latest Git
+- Ansible
+- Websocat
+- Kubectl + Bash completion
+- Helm + Helm-Secrets
+- VirtualBox + Vagrant
+- Meld
+- latest Golang
 
-This script is modular, safe for repeated execution, and designed for Debian/Ubuntu systems.
+### `wg-stat.sh`
+Displays WireGuard peer statistics in a clean table:
+
+- config/client name
+- external address
+- received traffic
+- transmitted traffic
+- last handshake
+- total traffic
+
+Peers are automatically sorted by total traffic usage.
 
 ---
 
-## ⚙️ Features
-
-- Modular design with separate functions for each tool
-- Safe execution with `set -euo pipefail`
-- Automatic detection of OS and version
-- Installs latest stable versions of Git, Golang, Helm, and other tools
-- Updates `PATH` automatically for Go and other installed binaries
-- Idempotent: safe to run multiple times without breaking the system
-
----
-
-## 🚀 Usage
-
-### Clone the repository:
+## Usage
 
 ```bash
 git clone https://github.com/polunox/bash.git
 cd bash
+chmod +x *.sh
